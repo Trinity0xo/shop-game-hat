@@ -93,9 +93,9 @@ function renderPuchase(data) {
           <img src="${v.img}" alt="">
           <div class="p-name">
             <h4 class="name-product">${v.name}</h4>
-            <span class="quantity">${v.quantity}</span>
+            <span class="quantity">x${v.quantity}</span>
           </div>
-          <p class="p-total">${v.price}</p>
+          <p class="p-total">${formatCurrency(v.price)}</p>
           <div data-id="${v.id}" data-rating="${v.rating}" class="stars-rating ${ratingClass}">
             <i class="fa-sharp fa-solid fa-star"></i>
             <i class="fa-sharp fa-solid fa-star"></i>
@@ -111,17 +111,17 @@ function renderPuchase(data) {
       <div class="block">
         <div class="address d-flex justify-content-between">
           <div class="address-content d-block">
-          <p class="p-createdAt"><strong>Đặt vào:</strong>${formattedDate(val.createdAt)}</p>
-            <p class="p-address"><strong>Địa chỉ:</strong>${val.address}</p>
+          <p class="p-createdAt"><strong>Đặt vào:</strong> ${formattedDate(val.createdAt)}</p>
+            <p class="p-address"><strong>Địa chỉ:</strong> ${val.address}</p>
             
           </div>
           <div class="total d-block">
-            <p class="t-quantity"><strong>Số sản phẩm:</strong>${count}</p>
-            <p class="t-price"><strong>Tổng tiền:</strong>${formatCurrency(val.total)}</p>
-            <p class="t-methods"><strong>Phương thức:</strong>${val.methods}</p>
+            <p class="t-quantity"><strong>Số sản phẩm:</strong> ${count}</p>
+            <p class="t-price"><strong>Tổng tiền:</strong> ${formatCurrency(val.total)}</p>
+            <p class="t-methods"><strong>Phương thức:</strong> ${val.methods}</p>
           </div>
           <div class="status d-block">
-            <p class="s-status"><strong>Trang thái:</strong>${val.status}</p>
+            <p class="s-status"><strong>Trang thái:</strong> ${val.status}</p>
             <hr style="margin-bottom: 0; color: white;">
             ${cancelBtn}
           </div>

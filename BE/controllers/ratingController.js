@@ -88,10 +88,11 @@ exports.addRating = async (req, res) => {
     );
     return res.status(200).json({
       success: true,
+      message: "Đánh giá sản phẩm thành công",
       data: existingRating,
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, message: "Something went wrong" });
+    res.status(500).json({ success: false, message: "Đã xảy ra lỗi khi đánh giá sản phẩm sản phẩm" });
   }
 };

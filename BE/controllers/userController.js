@@ -35,7 +35,7 @@ exports.register = async (req, res) => {
       from: "manhha2392000@gmail.com",
       to: user.email,
       subject: "Xác minh địa chỉ email",
-      text: `Xin chào,\n\nVui lòng nhấp vào liên kết sau để xác minh địa chỉ email của bạn:\n\n${verificationLink}\n\nTrân trọng,\nNhóm hỗ trợ của chúng tôi`,
+      text: `Xin chào,\n\nVui lòng nhấp vào liên kết sau để xác minh địa chỉ email của bạn:\n\n${verificationLink}\n\nTrân trọng`,
     };
     await transporter.sendMail(mailOptions);
     res.status(201).json({
@@ -122,7 +122,7 @@ exports.resendVerificationEmail = async (req, res) => {
       from: "manhha2392000@gmail.com",
       to: user.email,
       subject: "Xác minh địa chỉ email",
-      text: `Xin chào,\n\nVui lòng nhấp vào liên kết sau để xác minh địa chỉ email của bạn:\n\n${verificationLink}\n\nTrân trọng,\nNhóm hỗ trợ của chúng tôi`,
+      text: `Xin chào,\n\nVui lòng nhấp vào liên kết sau để xác minh địa chỉ email của bạn:\n\n${verificationLink}\n\nTrân trọng`,
     };
     await transporter.sendMail(mailOptions);
     res.status(200).json({
@@ -583,7 +583,7 @@ exports.forgotPassword = async (req, res) => {
       from: "manhha2392000@gmail.com",
       to: user.email,
       subject: "Đặt lại mật khẩu",
-      text: `Xin chào,\n\nBạn đã yêu cầu đặt lại mật khẩu. Vui lòng sử dụng mã sau để đặt lại mật khẩu của bạn:\n\n${resetToken}\n\nMã này sẽ hết hạn sau 1 giờ.\n\nNếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.\n\nTrân trọng,\nNhóm hỗ trợ của chúng tôi`,
+      text: `Xin chào,\n\nBạn đã yêu cầu đặt lại mật khẩu. Vui lòng sử dụng mã sau để đặt lại mật khẩu của bạn:\n\n${resetToken}\n\nMã này sẽ hết hạn sau 1 giờ.\n\nNếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.\n\nTrân trọng`,
     };
     await transporter.sendMail(mailOptions);
     return res.status(200).json({

@@ -138,7 +138,7 @@ function renderCmt(data) {
             <div class="cmt-top-name">
               <p class="p-name">${val.name}</p>
               <p class="p-admin">${val.isAdmin ? "Admin" : ""}</p>
-              <p class="p-purchase">${val.purchased ? "purchased" : ""}</p>
+              <p class="p-purchase">${val.purchased ? "Đã mua hàng" : ""}</p>
             </div>
           </div>
           <div class="cmt-content">
@@ -217,7 +217,7 @@ function renderContent (data){
     const html_name = `                          
     <p class="product-category mb-0">${data.manufacturer}
     <h3>${data.name}</h3>
-    <p><strong>Ngày ra mắt:</strong>${ formattedDate(data.release_date)}</p>
+    <p><strong>Ngày ra mắt:</strong> ${ formattedDate(data.release_date)}</p>
     <div class="stars-rating">
         <i class="fa-sharp fa-solid fa-star"></i>
         <i class="fa-sharp fa-solid fa-star"></i>
