@@ -1,43 +1,36 @@
-import {alertFullil,alertFail} from "./header.js";
+import { alertFullil, alertFail } from "./header.js";
+
 // slide form
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+const signUpButton = document.getElementById("signUp");
+const signInButton = document.getElementById("signIn");
+const container = document.getElementById("container");
 const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
 const alertSuccess = $(".alert-primary");
 const alertDanger = $(".alert-danger");
 const formSignin = $(".get-signin");
-const http = "http://localhost:8080/api/users/";
-const checkRegister = JSON.parse(localStorage.getItem("register"));
+const http = "http://localhost:8080/api/v1";
 let isEmail = "";
 let isCheckEmail = false;
-signUpButton.addEventListener('click', () =>{
-  $(".sign-up-container").innerHTML=htmlSignUp
-  container.classList.add('right-panel-active')
-  
+signUpButton.addEventListener("click", () => {
+  $(".sign-up-container").innerHTML = htmlSignUp;
+  container.classList.add("right-panel-active");
+
   const formSignup = $(".get-signup");
   formSignup.addEventListener("submit", function (e) {
     e.preventDefault();
-    // const email = this.elements["email"].value;
-    // const username = this.elements["username"].value;
-    // const password = this.elements["password"].value;
-    // const confirm = this.elements["confirm"].value;
     const email = $(".r-email").value;
     const name = $(".r-username").value;
     const password = $(".r-password").value;
     const confirm = $(".confirm").value;
     if (password === confirm) {
       const data = {
-        name ,
+        name,
         email,
         password,
       };
-      // console.log(data)
       register(data);
     } else {
-      alertDanger.children[0].textContent =
-        "Mật khẩu không khớp!";
+      alertDanger.children[0].textContent = "Mật khẩu không khớp!";
       alertDanger.classList.add("get-active");
       setTimeout(() => {
         alertDanger.classList.remove("get-active");
@@ -46,27 +39,20 @@ signUpButton.addEventListener('click', () =>{
   });
 });
 
-signInButton.addEventListener('click', () =>{
-  if(isEmail && isCheckEmail){
-    const resendHtml = `<a class="re-send" href="#">Gửi lại email xác nhận?</a>`
-    forgot.insertAdjacentHTML('beforebegin', resendHtml)
-    const btnReSend = $(".re-send")
-    btnReSend.addEventListener('click', () =>{
-      resendVerify(isEmail)
-    })
-    isCheckEmail =  false
+signInButton.addEventListener("click", () => {
+  if (isEmail && isCheckEmail) {
+    const resendHtml = `<a class="re-send" href="#">Gửi lại email xác nhận?</a>`;
+    forgot.insertAdjacentHTML("beforebegin", resendHtml);
+    const btnReSend = $(".re-send");
+    btnReSend.addEventListener("click", () => {
+      resendVerify(isEmail);
+    });
+    isCheckEmail = false;
   }
-  container.classList.remove('right-panel-active')
+  container.classList.remove("right-panel-active");
 });
 
-// ------------------------
-
-// const signinBtn = document.querySelector(".signin-btn");
-// const signupBtn = document.querySelector(".signup-btn");
-// const formBx = document.querySelector(".form-bx");
-// const wrapperForm = document.querySelector(".wrapper-form");
-
-const forgot= $(".forgot")
+const forgot = $(".forgot");
 const htmlForgot = `
         <label>
             <input type="text" class="f-token" placeholder="Nhập key xác nhận" pattern=".{4,}"
@@ -82,8 +68,8 @@ const htmlForgot = `
         </label>
         <button class="btn-submit-register" style="margin-top: 9px">Lấy lại mật khẩu</button>
 
-`
-const htmlSignUp=`
+`;
+const htmlSignUp = `
       <form class="get-signup" autocomplete="on" action="#">
           <h1>Đăng ký</h1>
           <div class="social-container">
@@ -106,8 +92,8 @@ const htmlSignUp=`
           </label>
           <button class="btn-submit-register" style="margin-top: 9px">Đăng ký</button>
       </form>
-`
-const htmlSendEmail=`
+`;
+const htmlSendEmail = `
     <form class="get-forgot" autocomplete="on" action="#">
         <h1>Quên mật khẩu</h1>
         <div class="social-container">
@@ -118,137 +104,141 @@ const htmlSendEmail=`
         </label>
         <button class="btn-send" style="margin-top: 9px">Gửi email xác nhận</button>  
     </form>
-`
-forgot.addEventListener('click',function(e){
-  signUpButton.click()
-  $(".sign-up-container").innerHTML=htmlSendEmail
-  const fForgot = $(".get-forgot")
-  fForgot.addEventListener('submit',async function(e){
+`;
+
+// ========== forgot password ========= //
+
+forgot.addEventListener("click", function (e) {
+  signUpButton.click();
+  $(".sign-up-container").innerHTML = htmlSendEmail;
+  const fForgot = $(".get-forgot");
+  fForgot.addEventListener("submit", async function (e) {
     e.preventDefault();
-    const btnSend = $(".btn-send")
-    if(btnSend){
-      const email = $(".f-email").value
-      // console.log(email);
-      // getForgotToken(email)
-     await fetch(`${http}user/forgetPassword`,{
-    method:"post",
-    headers:{
-      "Content-Type": "application/json",
-    },
-    body:JSON.stringify({email})
-  })
-    .then((data) => data.json())
-    .then((data) => {
-      if(!data.success){
-        alertFail(data.message)
-      }else{
-        alertFullil(data.message,4000)
-        btnSend.setAttribute("disabled", "disabled");
-        btnSend.insertAdjacentHTML('afterend', htmlForgot);
-        btnSend.remove()
-        $(".f-email").setAttribute("disabled", "disabled");
-      }
-    })
-    .catch((err) => {
-      alertFail(err);
-    });
-    }
-      const resetToken = $(".f-token").value
-      const password = $(".f-password").value
-      const confirmPassword = $(".f-confirm").value
-      resetPassword(resetToken, password, confirmPassword);
-
-
-  })
-})
-function resetPassword(resetToken, password, confirmPassword){
-  fetch(`${http}user/resetPassword`,{
-    headers:{
-      "Content-type": "application/json; charset=UTF-8",                     
-    },
-    method:"put",
-    body: JSON.stringify({resetToken, password, confirmPassword})
-  })
-  .then((data)=>data.json())
-  .then((data)=>{
-    if(data.success)
-    {
-      alertFullil(data.message)
-      signInButton.click()
-    }
-    else{
-      alertFail(data.message,2000)
-    }
-  })
-  .catch(()=>{
-    alertFail();
-  })
-}
-async function resendVerify(email){
-    await fetch(`${http}user/resendVerification`,{
-        headers: {                     
-        "Content-type": "application/json; charset=UTF-8",
+    const btnSend = $(".btn-send");
+    if (btnSend) {
+      const email = $(".f-email").value;
+      await fetch(`${http}/auth/forget-password`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
         },
-        method:"post",
-        body:JSON.stringify({email})    
-    })
+        body: JSON.stringify({ email }),
+      })
+        .then((data) => data.json())
+        .then((data) => {
+          if (!data.success) {
+            alertFail(data.message);
+          } else {
+            alertFullil(data.message, 4000);
+            btnSend.setAttribute("disabled", "disabled");
+            btnSend.insertAdjacentHTML("afterend", htmlForgot);
+            btnSend.remove();
+            $(".f-email").setAttribute("disabled", "disabled");
+          }
+        })
+        .catch((err) => {
+          alertFail(err);
+        });
+    }
+    const resetToken = $(".f-token").value;
+    const password = $(".f-password").value;
+    const confirmPassword = $(".f-confirm").value;
+    resetPassword(resetToken, password, confirmPassword);
+  });
+});
+
+// ========== reset password ========= //
+
+function resetPassword(resetToken, password, confirmPassword) {
+  fetch(`${http}/auth/reset-password`, {
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+    method: "put",
+    body: JSON.stringify({ resetToken, password, confirmPassword }),
+  })
     .then((data) => data.json())
     .then((data) => {
-      if(data.success){
-        alertFullil(data.message)
-      }else{
-        alertFail(data.message)
+      if (data.success) {
+        alertFullil(data.message);
+        signInButton.click();
+      } else {
+        alertFail(data.message, 2000);
       }
     })
+    .catch(() => {
+      alertFail();
+    });
 }
-//LOGIN----------
-async function login(data){
-  await fetch(`${http}login`,{
-    method:"POST",
-    headers:{
+
+// ========== resend verify link ========= //
+
+async function resendVerify(email) {
+  await fetch(`${http}/auth/resend-verify-link"`, {
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+    method: "post",
+    body: JSON.stringify({ email }),
+  })
+    .then((data) => data.json())
+    .then((data) => {
+      if (data.success) {
+        alertFullil(data.message);
+      } else {
+        alertFail(data.message);
+      }
+    });
+}
+
+// ========== login ========= //
+
+async function login(data) {
+  await fetch(`${http}/auth/login`, {
+    method: "POST",
+    headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   })
-  .then((response)=> response.json())
-  .then((data)=>{
-    if(!data.success){
-      alertDanger.children[0].textContent = `${data.message}`;
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data.success) {
+        alertDanger.children[0].textContent = `${data.message}`;
+        alertDanger.classList.add("get-active");
+        setTimeout(() => {
+          alertDanger.classList.remove("get-active");
+        }, 2000);
+      } else {
+        localStorage.setItem(
+          "loginUser",
+          JSON.stringify({ data: data.data, token: data.token })
+        );
+      }
+
+      // checkAdmin
+      const User = JSON.parse(localStorage.getItem("loginUser"));
+      if (User.data?.isAdmin) {
+        window.location.replace("./admin.html");
+      } else {
+        window.location.replace("./index.html");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
       alertDanger.classList.add("get-active");
       setTimeout(() => {
         alertDanger.classList.remove("get-active");
       }, 2000);
-    }else{
-      localStorage.setItem(
-        "loginUser",
-        JSON.stringify({data:data.data , token:data.token})
-      );
-      // window.location.replace("./index.html");
-      // alert("login Success")
-    }
-    // checkAdmin
-    const User = JSON.parse(localStorage.getItem("loginUser"));
-    // console.log(User.data.admin)
-    if(User.data.isAdmin){
-      window.location.replace("./admin.html");
-    }
-    else{
-      window.location.replace("./index.html");
-    }
-  })
-  .catch((error)=>{
-    console.error("Error:", error);
-    alertDanger.classList.add("get-active");
-    setTimeout(() => {
-      alertDanger.classList.remove("get-active");
-    }, 2000);
-  });
+    });
 }
-//REGISTER---------------
-async function register(data){
+
+// ========== register ========= //
+
+async function register(data) {
   try {
-    await fetch(`${http}register`, {
-      method: "POST", // or 'PUT'
+    await fetch(`${http}/auth/register`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -257,11 +247,11 @@ async function register(data){
       .then((response) => response.json())
       .then((response) => {
         if (!response.success) {
-            alertDanger.children[0].textContent = `${response.error.message}`;
-            alertDanger.classList.add("get-active");
-            setTimeout(() => {
-              alertDanger.classList.remove("get-active");
-            }, 3000);
+          alertDanger.children[0].textContent = `${response.message}`;
+          alertDanger.classList.add("get-active");
+          setTimeout(() => {
+            alertDanger.classList.remove("get-active");
+          }, 3000);
         } else {
           alertSuccess.children[0].textContent = `Đăng ký thành công,bạn cần xác minh tài khoản trước khi đăng nhập nhé`;
           alertSuccess.classList.add("get-active");
@@ -269,18 +259,18 @@ async function register(data){
             alertSuccess.classList.remove("get-active");
           }, 3000);
           isEmail = data.email;
-          isCheckEmail = true
+          isCheckEmail = true;
           signInButton.click();
-          // formSignin.elements["email"].value = data.email;
-          // formSignin.elements["password"].value = data.password;
+
           // Confirm SIGN_IN
-          $(".l-email").value= data.email;
-          $(".l-password").value= data.password;
+          $(".l-email").value = data.email;
+          $(".l-password").value = data.password;
+
           // clear SiGN_UP
           $(".r-email").value = "";
-          $(".r-username").value ="";
-          $(".r-password").value="";
-          $(".confirm").value="";
+          $(".r-username").value = "";
+          $(".r-password").value = "";
+          $(".confirm").value = "";
         }
       })
       .catch((error) => {
@@ -295,70 +285,16 @@ async function register(data){
   }
 }
 
-
-
-
-window.addEventListener("load",function(e){
+window.addEventListener("load", function (e) {
   formSignin.addEventListener("submit", function (e) {
     e.preventDefault();
-    // const email = this.elements["email"].value;
-    // const password = this.elements["password"].value;
     const email = $(".l-email").value;
     const password = $(".l-password").value;
-    console.log(email,password)
+    console.log(email, password);
     const data = {
       email,
       password,
     };
     login(data);
   });
-  // formSignup.addEventListener("submit", function (e) {
-  //   e.preventDefault();
-  //   console.log("asdsad");
-  //   // const email = this.elements["email"].value;
-  //   // const username = this.elements["username"].value;
-  //   // const password = this.elements["password"].value;
-  //   // const confirm = this.elements["confirm"].value;
-  //   const email = $(".r-email").value;
-  //   const name = $(".r-username").value;
-  //   const password = $(".r-password").value;
-  //   const confirm = $(".confirm").value;
-  //   if (password === confirm) {
-  //     const data = {
-  //       name ,
-  //       email,
-  //       password,
-  //     };
-  //     console.log(data)
-  //     // register(data);
-  //   } else {
-  //     alertDanger.children[0].textContent =
-  //       "Mật khẩu không khớp!";
-  //     alertDanger.classList.add("get-active");
-  //     setTimeout(() => {
-  //       alertDanger.classList.remove("get-active");
-  //     }, 3000);
-  //   }
-  // });
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
