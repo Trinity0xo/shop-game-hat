@@ -1,14 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Email Xác Minh</title>
-</head>
-<body>
-  <h1>Email của bạn đã được xác minh thành công!</h1>
-  <p>Cảm ơn user: <strong><%= username %></strong> đã xác minh địa chỉ email của mình.</p>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,18 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CẢM ƠN</title>
+    <title>THANH YOU</title>
 </head>
 
 <body>
     <div class="thank-page">
         <div class="container">
-            <!-- <img disabled src="./thanks.png" alt=""> -->
-            <h1>Email của bạn đã được xác minh thành công!</h1>
+            <h1>Your email has been successfully verified!</h1>
             <hr>
-            <p>Cảm ơn user: <strong><%= username %></strong> đã xác minh địa chỉ email của mình.</p>
-            <p>Hãy đóng trang và quay lại trang đăng nhập để tiếp tục nhé</p>
-            <!-- <button class="btn-back">Quay lại trang chủ ngay</button> -->
+            <p>Please close the page and return to the login page to continue</p>
         </div>
     </div>
 </body>
@@ -59,19 +45,5 @@
 }
 .container .btn-back:hover {
   background-color: antiquewhite;
-}/*# sourceMappingURL=thank.css.map */
+}
 </style>
-<!-- <script>
-  const $ = document.querySelector.bind(document);
-const momo = JSON.parse(localStorage.getItem("Momo"))||null;
-const http = "http://localhost:8080/api/";
-const User = JSON.parse(localStorage.getItem("loginUser"));
-window.addEventListener("load",function(){
-    this.setTimeout(()=>{
-        this.window.location.replace("http://192.168.0.38:5500/FE/index.html")
-    },4000)
-    $(".btn-back").addEventListener("click",function(){
-        window.location.replace("http://192.168.0.38:5500/FE/index.html")
-    })
-})
-</script> -->
