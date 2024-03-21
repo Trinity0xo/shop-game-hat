@@ -40,26 +40,6 @@ app.use("/api/v1/sale-report", salesReportRoute);
 
 app.use(errorMiddleware);
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-//   res.header("Access-Control-Allow-Headers", "Content-Type");
-//   next();
-// });
-// app.use(express.json());
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   })
-// );
-// app.use(bodyParser.json());
-
-// app.use("/api/products", productRouter);
-// app.use("/api/carts", cartRouter);
-// app.use("/api/oders", orderRouter);
-// app.use("/api/ratings", ratingRouter);
-// app.use("/api/comments", commentRouter);
-// app.use("/api/sales-Reports", salesReportRouter);
 // app.post("/api/momo", momo);
 
 app.listen(env.SERVER_PORT, () => {

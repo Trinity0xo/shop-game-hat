@@ -11,4 +11,15 @@ exports.env = {
   JWT_EXPIRE: process.env.JWT_EXPIRE || "1d",
 
   MONGODB_URI: process.env.MONGODB_URI || "mongodb://localhost:27017/shop-game",
+
+  NODEMAILER_GOOGLE_CLIENT_ID:
+    process.env.NODEMAILER_GOOGLE_CLIENT_ID || "your google client id",
+
+  NODEMAILER_GOOGLE_CLIENT_SECRET:
+    process.env.NODEMAILER_GOOGLE_CLIENT_SECRET || "your google client secret",
+
+  NODEMAILER_GOOGLE_REFRESH_TOKEN:
+    process.env.NODEMAILER_GOOGLE_REFRESH_TOKEN || "your refresh token",
+  NODEMAILER_GOOGLE_EMAIL:
+    process.env.NODEMAILER_GOOGLE_EMAIL || "your google email",
 };
