@@ -79,10 +79,6 @@ body {
   margin: 0;
 }
 
-.carousel-item {
-  height: 500px;
-}
-
 .image {
   display: block;
   width: 100%;
@@ -279,9 +275,6 @@ header .container .nav-top .nav-action .user .dropdown-user .profile:hover .drop
 header .container .nav-top .nav-action .user .dropdown-user .profile li {
   position: relative;
 }
-header .container .nav-top .nav-action .user .dropdown-user .profile .nav-edit:hover {
-  background-color: white !important;
-}
 header .container .nav-top .nav-action .user .dropdown-user .profile .Change:hover .dropdown-pass {
   visibility: visible;
   opacity: 1;
@@ -292,7 +285,7 @@ header .container .nav-top .nav-action .user .dropdown-user .profile .Change .dr
   opacity: 0;
   position: absolute;
   top: 0;
-  left: -80%;
+  left: -100%;
   background-color: #eee;
 }
 header .container .nav-top .nav-action .user .dropdown-user .profile .Change .dropdown-pass input {

@@ -6,10 +6,6 @@ body {
   }
   @import "./alert";
   @import "./footer";
-  
-  .carousel-item{
-      height: 500px;
-  }
   .image{
     display: block;
     width: 100%;
@@ -208,11 +204,6 @@ header{
                         li{
                           position: relative;
                         }
-                        .nav-edit{
-                          &:hover{
-                            background-color: white !important;
-                          }
-                        }
                         .Change{
                           &:hover{
                             .dropdown-pass{
@@ -226,7 +217,7 @@ header{
                             opacity: 0;
                             position: absolute;
                             top: 0;
-                            left: -80%;
+                            left: -100%;
                             background-color: #eee;
                             input{
                               display: block;
