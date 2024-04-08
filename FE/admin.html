@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fontawesome-free-6.1.2-web/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Scss/admin.css">
+    <link rel="shortcut icon" type="image/png" href="./img/logo.jpg">
+    <title>Quản trị</title>
+</head>
+<body id="body-pd">
+      <div class="alert alert-danger" role="alert">
+    <span>Something was wrong</span> <i class="fa-solid fa-exclamation"></i>
+</div>
+<div class="alert alert-primary" role="alert">
+    <span>A simple danger alert with</span> <i class="fa-solid fa-check"></i>
+</div>
+    <header class="header" id="header">
+        <div class="header_toggle">
+             <i class="fa-solid fa-bars" id="header-toggle"></i> 
+        </div>
+        <!-- <div class="header_img"> <img src="./img/sp1.jpg" alt=""> </div> -->
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                 <a href="#" class="nav_logo"> 
+                    <i class="fa-solid fa-lock nav_logo-icon"></i>
+                    <span class="nav_logo-name">NameUser</span> 
+                </a>
+                <div class="nav_list"> 
+                    <a href="#" class="nav_link active nav-dash"> 
+                        <i class="fa-solid fa-grip nav_icon"></i> 
+                        <span class="nav_name">THỐNG KÊ</span> </a> 
+                    <a href="#" class="nav_link nav-user">
+                        <i class="fa-solid fa-user nav_icon"></i>
+                        <span class="nav_name">NGƯỜI DÙNG</span> </a> 
+                    <a href="#" class="nav_link nav-product"> 
+                        <i class="fa-solid fa-box nav_icon"></i>
+                        <span class="nav_name">SẢN PHẨM</span> </a> 
+                    <a href="#" class="nav_link nav-comment"> 
+                        <i class="fa-solid fa-cart-shopping nav_icon"></i>
+                        <span class="nav_name">ĐƠN HÀNG</span> </a> 
+                    <a href="#" class="nav_link nav-key"> 
+                        <i class="fa-solid fa-key nav_icon"></i> 
+                        <span class="nav_name">MẬT KHẨU</span> </a> 
+                    <!-- <a href="#" class="nav_link"> 
+                        <i class='bx bx-bar-chart-alt-2 nav_icon'></i> 
+                        <span class="nav_name">Something</span> 
+                    </a> -->
+                </div>
+            </div> <a href="#" class="nav_link log-out"> <i class="fa-solid fa-right-from-bracket nav_icon"></i> <span class="nav_name">Đăng xuất</span> </a>
+        </nav>
+    </div>
+    <!-- Container Main start-->
+    <!-- Main Dashboard -->
+    <div class=" bg-light main main-dashboard nav-active">
+        <h5>DOANH THU</h5>
+            <div class="wrapper-statistic">
+
+            <div class="statistic row">
+                <div class="statistic-item products col-12 col-lg-3">
+                    <div class="item">
+                        <div class="content">
+                            <div class="item-name">Số sản phẩm đã bán<i class="fa-solid fa-box"></i></div>
+                        </div>
+                        <p class="rating-product">0</p>
+                    </div>
+                </div>
+                <div class="statistic-item revenue col-12 col-lg-3">
+                    <div class="item">
+                        <div class="content">
+
+                            <div class="item-name">Doanh thu<i class="fa-solid fa-money-bill"></i></div>
+                        </div>
+                        <p class="rating-revenue">0</p>
+                    </div>
+                </div>
+                <div class="statistic-item users col-12 col-lg-3">
+                    <div class="item">
+                        <div class="content">
+
+                            <div class="item-name">Số người đặt hàng<i class="fa-solid fa-user"></i></div>
+                        </div>
+                        <p class="rating-users">0</p>
+                    </div>
+                </div>
+                <div class="statistic-item orders col-12 col-lg-3">
+                    <div class="item">
+                        <div class="content">
+
+                            <div class="item-name">Số đơn hàng<i class="fa-solid fa-cart-flatbed"></i></div>
+                        </div>
+                        <p class="rating-orders">0</p>
+                    </div>
+                </div>
+
+            </div>
+           <!--  -->
+           <h4 style="margin-top: 40px;">Sản Phẩm Bán chạy</h4>
+            <div class="top-product" style="margin-top: 15px;">
+                <table class="table top-products"> 
+                    <thead>
+                        <tr>
+                            <th>Top</th>
+                            <th style="width: 230px;">Ảnh</th>
+                            <th style="width: 400px;">Tên SP</th>
+                            <th class="t-small">Loại</th>
+                            <th class="t-small">Giá</th>
+                            <th>Đã Bán</th>
+                        </tr>
+                    </thead>
+                    <tbody id="top-product-item">
+                        <!-- render top product class="top-product-item" here  -->
+                    </tbody>
+                </table>
+            </div>
+
+    </div>
+    </div>
+    <!-- Main USER -->
+    <div class="height-100 bg-light main main-user">
+        <h5>NGƯỜI DÙNG</h5>
+        <!-- <div class="container"> -->
+            <div class="table-responsive">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-8"><h5>Danhh sách người dùng</h5></div>
+                            <div class="col-sm-4">
+                                <button type="button" class="btn btn-info add-new" style="display:none;"><i class="fa fa-plus"></i> Add New</button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-add">
+                        <thead >
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Admin</th>
+                                <th>Phone</th>
+                                <th>Adress</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                <td><input type="text" class="form-control" name="name" id="name"></td>
+                                <td><input type="text" class="form-control" name="email" id="email"></td>
+                                <td><input type="text" class="form-control" name="password" id="password"></td>
+                                <td><input type="text" class="form-control" name="isAdmin" id="isAdmin"></td>
+                                <td><input type="text" class="form-control" name="phone" id="phone"></td>
+                                <td><input type="text" class="form-control" name="address" id="address"></td>
+                                <td>
+                                    <a class="add" title="Add" data-toggle="tooltip"><i class="fa-solid fa-plus"></i></a>
+                                    <a class="cancel" title="cancel" data-toggle="tooltip"><i class="fa-solid fa-xmark"></i></a>
+                                </td>
+                                </tr>                            
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-bordered table-user">
+                        <thead>
+                            <tr>
+                                <th>Họ tên</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Thành phố</th>
+                                <th>Quận/Huyện</th>
+                                <th>Phường/xã</th>
+                                <th>Số nhà/đường</th>
+                                <th>Tùy chọn</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-user">
+                        <!-- render user here  -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!-- Main Product -->
+    <div class="height-100 bg-light main main-product">
+        <h5>SẢN PHẨM</h5>
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col col-sm-8"><h5>Danh sách sản phẩm</h5></div>
+                    <div class="col col-sm-4">
+                        <button type="button" class="btn btn-info add-new-product "><i class="fa fa-plus"></i> Thêm sản phẩm</button>
+                    </div>
+                </div>
+                </div>
+                <table class="table product-items"> 
+                    <thead>
+                        <tr>
+                            <th style="width: 230px;">Hình</th>
+                            <th >Tên</th>
+                            <th class="t-small">Sản xuất</th>
+                            <th class="t-small">Giá</th>
+                            <th>Mô tả</th>
+                            <th style="width: 200px;" class="t-small">Loại</th>
+                            <th>Tùy chỉnh</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-product">
+                        <!-- render model add new  -->
+                        <!-- render product class="product-item" here  -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Main Commment -->
+    <div class="height-100 bg-light main main-comment">
+        <!-- <h4>Main Purchase</h4> -->
+            <div class="puchase">
+        <!-- <div class="container"> -->
+            <h5>ĐƠN HÀNG</h5>
+            <div class="purchased">
+                <!-- render list purchase class="block" contain list class="product"-->
+            </div>
+        <!-- </div> -->
+    </div>
+    </div>
+    <!-- Main key -->
+    <div class="height-100 bg-light main main-key">
+        <!-- <h4>Main Key</h4> -->
+                    <!-- form card change password -->
+                    <div class="card card-outline-secondary " >
+                        <div class="card-header">
+                            <h3 class="mb-0">Đổi mật khẩu</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form form-change-pass-admin" role="form" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="inputPasswordOld">Mật khẩu hiện tại</label>
+                                    <input type="password" class="form-control" id="inputPasswordOld" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPasswordNew">Mật khẩu mới</label>
+                                    <input type="password" class="form-control" id="inputPasswordNew" required=""
+                                    title="Phải chứa ít nhất một số và một chữ hoa và chữ thường, và ít nhất 8 ký tự trở lên">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPasswordNewVerify">Nhập lại Mật khẩu mới</label>
+                                    <input type="password" class="form-control" id="inputPasswordNewVerify" required="">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-lg float-right">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+    </div>
+</body>
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./JS/admin.js"></script>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fontawesome-free-6.1.2-web/css/all.min.css">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="./img/logo.jpg">
+    <link rel="stylesheet" href="./Scss/detail.css">
+    <link rel="stylesheet" href="./Scss/resset.css">
+    <title>Chi tiết sản phẩm</title>
+</head>
+
+<body>
+    <!-- alert -->
+    <div class="alert alert-danger" role="alert">
+        <span>Something was wrong</span> <i class="fa-solid fa-exclamation"></i>
+    </div>
+    <div class="alert alert-primary" role="alert">
+        <span>A simple danger alert with</span> <i class="fa-solid fa-check"></i>
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="row nav-top">
+                <div class="col col-lg-7 col-md-6 logo-search">
+                    <a href="./index.html" class="logo-icon">
+                        <img src="./img/logo.jpg" alt="logo">
+                        <p>HAT</p>
+                    </a>
+                    <!-- <form class="form-search " action="#">
+                        <input name="search" type="text" placeholder="Search...">
+                        <button class="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form> -->
+                </div>
+                <div class="col col-lg-5 col-md-6 nav-action">
+                    <a href="./cart.html" class="cart">
+                        <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+                        <p class="quantities-cart">0</p>
+                    </a>
+                    <div class="wall"></div>
+                    <div class="user">
+                        <i class="fa-solid fa-user"></i>
+                        <a href="./Login.html" class="login">Đăng nhập</a>
+                        <span class="wall-space"> / </span>
+                        <a href="./Login.html" class="register">Đăng ký</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container my-5">
+        <div class=""></div>
+        <div class="card details-card p-0">
+            <div class="row">
+                <div class="row-content"></div>
+                <div class="col-md-6 col-sm-12 image">
+                    <!-- <img class="img-fluid details-img" src="./img/sp1.jpg" alt=""> -->
+                </div>
+                <div class="col-md-6 col-sm-12 description-container p-5">
+                    <div class="main-description">
+                        <div class="name">
+                            <!-- <p class="product-category mb-0">Graphite</p>
+                            <h3>iPhone 7 Graphite - 256GB</h3>
+                            <hr>
+                            <p class="product-price">$1199.00</p> -->
+                        </div>
+                        <div class="content-action">
+                            <div class="quantiti-product">
+                                <button class="sub">-</button>
+                                <input class="quantity" type="number" value="1" min="1" max="100">
+                                <button class="plus">+</button>
+                            </div>
+                            <button class="add-cart">
+                                Thêm vào giỏ
+                            </button>
+                        </div>
+                        <div style="clear:both"></div>
+                        <hr>
+                        <div class="description">
+                            <!-- <p class="product-title mt-4 mb-1">About this product</p>
+                            <p class="product-description mb-4">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis assumenda voluptatem tempore dolor quod. Expedita, id, minus similique dolor sed adipisci aliquam natus amet doloremque delectus cupiditate? Sint, quasi, ad necessitatibus omnis quaerat tenetur corporis porro aut, natus ex ab id vel odit veniam fugiat temporibus aperiam quia rem minima!
+                            </p> -->
+                        </div>
+                        <!-- <hr> -->
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+    </div>
+    <div class="Wrap-cmt">
+        <div class="container">
+            <h3>Bình luận</h3>
+            <div class="addcmt">
+                <form id="f-addcmt" action="#">
+                    <textarea class="txt" name="txt-content" id="txt-add" maxlength="1000" pattern=".{10,1000}"
+                        required="required" minlength="10" cols="30" rows="10"
+                        placeholder="Hãy để lại bình luận hoặc câu hỏi"></textarea>
+                    <button class="btn" type="submit">Gửi</button>
+                </form>
+            </div>
+            <hr>
+            <div class="comment-list">
+                <ul class="list-cmt">
+                    <!-- <li class="cmt">
+                            <div class="main-cmt">
+                                <div class="cmt-top">
+                                    <p class="cmt-top-name">Thương</p>
+                                </div>
+                                <div class="cmt-content">
+                                    <p class="cmt-text">Cho em hỏi sản phẩm này mua với có phần mềm Offices 365 chưa ạ nếu chưa mua luôn với phần mềm là bao nhiêu tiền vậy ạ</p>
+                                </div>
+                                <div class="cmt-command">
+                                    <a href="#">Reply</a>
+                                    <span>15/04/2023</span>
+                                </div>
+                            </div>
+                            <ul class="l-rep">
+                                <li class="rep">
+                                    <div class="main-cmt">
+                                        <div class="cmt-top">
+                                            <p class="cmt-top-name">Thanh Ngân</p>
+                                        </div>
+                                        <div class="cmt-content">
+                                            <p class="cmt-text">Chào anh, dạ khi mua Laptop Acer Aspire 3 A314 35 P3G9 N6000/4GB/256GB/Win11 (NX.A7SSV.007) không được cài sẵn Offices 365 anh nhé. Anh tham khảo Microsoft Office Home & Student 2021 chính hãng hiện có giá 2.190.000₫</p>
+                                        </div>
+                                        <div class="cmt-command">
+                                            <a href="#">Reply</a>
+                                            <span>15/04/2023</span>
+                                        </div>
+                                    </div>                                    
+                                </li>
+                                <li class="rep">
+                                    <div class="main-cmt">
+                                        <div class="cmt-top">
+                                            <p class="cmt-top-name">Thanh Ngân</p>
+                                        </div>
+                                        <div class="cmt-content">
+                                            <p class="cmt-text">Chào chị.  Dạ sản phẩm Microsoft Office Home & Student 2021 chính hãng với giá 2.190.000₫ sử dụng vĩnh viễn chị nhé. </p>
+                                        </div>
+                                        <div class="cmt-command">
+                                            <a href="#">Reply</a>
+                                            <span>15/04/2023</span>
+                                        </div>
+                                    </div>                                    
+                                </li>
+                            </ul>
+                        </li> -->
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Về chúng tôi</h3>
+                    <p>Không có gì ở đây :)</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liên hệ</h3>
+                    <p>Phường Tân Phú, Quận 9, Thành phố Hồ Chí Minh, Việt Nam</p>
+                    <p>Email: manhha2392000@gmail.com</p>
+                    <p>Số điện thoại: 0334587158</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Theo dõi chúng tôi trên</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=100073364611330"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/?lang=vi"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://steamcommunity.com/profiles/76561198853303791/"><i class="fa-brands fa-steam"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="./JS/detail.js" type="module"></script>
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</html>
